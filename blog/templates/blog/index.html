@@ -1,0 +1,19 @@
+{# наследуем от базового шаблона приложения #}
+{% extends 'blog/base_blog.html' %}
+
+{# передаем в базовый шаблон заголовок #}
+{% block title %}
+    Posts list
+{% endblock %}
+
+{# Передаем в базовый шаблон тело документа #}
+{% block content %}
+    <h1 class="mb-5">Posts</h1>
+    {# проходимся циклом по переменной #}
+    {# которую передали в контроллере #}
+    <div class="row">
+    {% for post in page_object.object_list %}
+        {% include 'blog/includes/post_card_tamplate.html' %}
+    {% endfor %}
+    </div>
+{% endblock %}
